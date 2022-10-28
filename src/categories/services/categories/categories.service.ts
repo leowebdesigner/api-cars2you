@@ -1,7 +1,10 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Category } from 'src/typeorm/entities/Category';
-import { CreateCategoryParams, UpdateCategoryParams } from 'src/utils/types';
+import {
+  CreateCategoryParams,
+  UpdateCategoryParams,
+} from 'src/utils/Categorytypes';
 import { Repository } from 'typeorm';
 
 @Injectable()
