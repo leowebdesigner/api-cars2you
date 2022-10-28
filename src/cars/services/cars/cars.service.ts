@@ -15,6 +15,10 @@ export class CarsService {
     return this.carRepository.find();
   }
 
+  findIdCar(id: number) {
+    return this.carRepository.findOne({ where: { id } });
+  }
+
   createCar(carDetails: CreateCarParams) {
     const newCar = this.carRepository.create({
       ...carDetails,
