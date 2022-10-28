@@ -9,8 +9,8 @@ import {
   Patch,
   Post,
 } from '@nestjs/common';
-import { CreateCarDto } from 'src/cars/Dtos/CreateCar.dto';
-import { UpdateCarDto } from 'src/cars/Dtos/UpdateCar.dto';
+import { CreateCarDto } from 'src/cars/dtos/CreateCar.dto';
+import { UpdateCarDto } from 'src/cars/dtos/UpdateCar.dto';
 import { CarsService } from 'src/cars/services/cars/cars.service';
 
 @Controller('cars')
