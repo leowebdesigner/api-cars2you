@@ -30,4 +30,8 @@ export class CarsService {
   updateCar(id: number, updateCarDetails: UpdateCarParams) {
     return this.carRepository.update({ id }, { ...updateCarDetails });
   }
+
+  deleteCar(id: number) {
+    return this.carRepository.delete({ id });
+  }
 }

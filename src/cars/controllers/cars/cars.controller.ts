@@ -1,6 +1,7 @@
 import {
   Body,
   Controller,
+  Delete,
   Get,
   NotFoundException,
   Param,
@@ -42,5 +43,10 @@ export class CarsController {
     @Body() UpdateCarDto: UpdateCarDto,
   ) {
     await this.carService.updateCar(id, UpdateCarDto);
+  }
+
+  @Delete(':id')
+  async deleteCarById(@Param('id', ParseIntPipe) id: number) {
+    await this.carService.deleteCar(id);
   }
 }
