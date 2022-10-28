@@ -15,6 +15,10 @@ export class CategoriesService {
     return this.categoryRepository.find();
   }
 
+  findIdCategory(id: number) {
+    return this.categoryRepository.findOne({ where: { id } });
+  }
+
   createCategory(categoryDetails: CreateCategoryParams) {
     const newCategory = this.categoryRepository.create({
       ...categoryDetails,

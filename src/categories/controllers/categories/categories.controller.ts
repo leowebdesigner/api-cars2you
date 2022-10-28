@@ -3,6 +3,7 @@ import {
   Controller,
   Delete,
   Get,
+  NotFoundException,
   Param,
   ParseIntPipe,
   Patch,
@@ -20,6 +21,16 @@ export class CategoriesController {
   async getCategories() {
     const categories = await this.categoryService.findCategories();
     return categories;
+  }
+
+  @Get(':id')
+  async getCategoryById(@Param('id', ParseIntPipe) id: number) {
+    const categories = await this.categoryService.findIdCategory(id);
+    if (categories) {
+      return categories;
+    } else {
+      throw new NotFoundException('Categoria não existe');
+    }
   }
 
   @Post()
