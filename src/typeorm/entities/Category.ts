@@ -5,7 +5,7 @@ export class Category {
   @PrimaryGeneratedColumn({ type: 'bigint' })
   id: number;
 
-  @Column({ unique: true })
+  @Column({ nullable: true })
   name: string;
 
   @Column({
