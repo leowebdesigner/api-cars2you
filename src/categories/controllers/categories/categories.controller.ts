@@ -6,10 +6,13 @@ import { CategoriesService } from 'src/categories/services/categories/categories
 export class CategoriesController {
   constructor(private categoryService: CategoriesService) {}
   @Get()
-  getCategories() {}
+  async getCategories() {
+    const categories = await this.categoryService.findCategories();
+    return categories;
+  }
 
   @Post()
   createCategory(@Body() createCategoryDto: CreateCategoryDto) {
-    this.categoryService.createCategory(createCategoryDto);
+    return this.categoryService.createCategory(createCategoryDto);
   }
 }

@@ -11,7 +11,9 @@ export class CategoriesService {
     private categoryRepository: Repository<Category>,
   ) {}
 
-  findCategories() {}
+  findCategories() {
+    return this.categoryRepository.find();
+  }
 
   createCategory(categoryDetails: CreateCategoryParams) {
     const newCategory = this.categoryRepository.create({
