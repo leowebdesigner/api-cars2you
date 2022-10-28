@@ -26,4 +26,8 @@ export class CategoriesService {
   updateCategory(id: number, updateCategoryDetails: UpdateCategoryParams) {
     return this.categoryRepository.update({ id }, { ...updateCategoryDetails });
   }
+
+  deleteCategory(id: number) {
+    return this.categoryRepository.delete({ id });
+  }
 }
