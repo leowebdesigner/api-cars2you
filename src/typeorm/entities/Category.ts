@@ -1,4 +1,4 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
 import { Car } from './Car';
 
 @Entity({ name: 'categories' })
@@ -15,4 +15,7 @@ export class Category {
     default: () => 'CURRENT_TIMESTAMP',
   })
   createdAt: Date;
+
+  @OneToMany(() => Car, (car) => car.category)
+  cars: Car[];
 }

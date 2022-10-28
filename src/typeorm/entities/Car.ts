@@ -1,4 +1,5 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
+import { Category } from './Category';
 
 @Entity({ name: 'cars' })
 export class Car {
@@ -29,4 +30,7 @@ export class Car {
     default: () => 'CURRENT_TIMESTAMP',
   })
   createdAt: Date;
+
+  @ManyToOne(() => Category, (category) => category.cars)
+  category: Category;
 }
