@@ -11,6 +11,10 @@ export class CarsService {
     private carRepository: Repository<Car>,
   ) {}
 
+  findCars() {
+    return this.carRepository.find();
+  }
+
   createCar(carDetails: CreateCarParams) {
     const newCar = this.carRepository.create({
       ...carDetails,
