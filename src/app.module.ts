@@ -4,6 +4,8 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { Category } from './typeorm/entities/Category';
 import { CategoriesModule } from './categories/categories.module';
+import { Car } from './typeorm/entities/Car';
+import { CarsModule } from './cars/cars.module';
 
 @Module({
   imports: [
@@ -14,10 +16,11 @@ import { CategoriesModule } from './categories/categories.module';
       username: 'root',
       password: 'root',
       database: 'carsyou',
-      entities: [Category],
+      entities: [Category, Car],
       synchronize: true, //WARNING
     }),
     CategoriesModule,
+    CarsModule,
   ],
   controllers: [AppController],
   providers: [AppService],

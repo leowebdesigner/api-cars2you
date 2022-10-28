@@ -1,4 +1,5 @@
 import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { Car } from './Car';
 
 @Entity({ name: 'categories' })
 export class Category {
