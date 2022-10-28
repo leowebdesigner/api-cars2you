@@ -12,7 +12,7 @@ export class CarsService {
   ) {}
 
   findCars() {
-    return this.carRepository.find();
+    return this.carRepository.find({ relations: ['category'] });
   }
 
   findIdCar(id: number) {

@@ -31,6 +31,8 @@ export class Car {
   })
   createdAt: Date;
 
-  @ManyToOne(() => Category, (category) => category.cars)
+  @ManyToOne(() => Category, (category) => category.cars, {
+    onDelete: 'SET NULL',
+  })
   category: Category;
 }
