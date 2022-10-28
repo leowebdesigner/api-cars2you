@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Category } from 'src/typeorm/entities/Category';
-import { CreateCategoryParams } from 'src/utils/types';
+import { CreateCategoryParams, UpdateCategoryParams } from 'src/utils/types';
 import { Repository } from 'typeorm';
 
 @Injectable()
@@ -21,5 +21,9 @@ export class CategoriesService {
       createdAt: new Date(),
     });
     return this.categoryRepository.save(newCategory);
+  }
+
+  updateCategory(id: number, updateCategoryDetails: UpdateCategoryParams) {
+    return this.categoryRepository.update({ id }, { ...updateCategoryDetails });
   }
 }
