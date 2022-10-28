@@ -5,9 +5,11 @@ import {
   NotFoundException,
   Param,
   ParseIntPipe,
+  Patch,
   Post,
 } from '@nestjs/common';
 import { CreateCarDto } from 'src/cars/Dtos/CreateCar.dto';
+import { UpdateCarDto } from 'src/cars/Dtos/UpdateCar.dto';
 import { CarsService } from 'src/cars/services/cars/cars.service';
 
 @Controller('cars')
@@ -32,5 +34,13 @@ export class CarsController {
   @Post()
   createCar(@Body() createCarDto: CreateCarDto) {
     return this.carService.createCar(createCarDto);
+  }
+
+  @Patch(':id')
+  async updateCarById(
+    @Param('id', ParseIntPipe) id: number,
+    @Body() UpdateCarDto: UpdateCarDto,
+  ) {
+    await this.carService.updateCar(id, UpdateCarDto);
   }
 }

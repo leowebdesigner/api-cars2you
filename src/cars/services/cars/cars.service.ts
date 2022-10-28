@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Car } from 'src/typeorm/entities/Car';
-import { CreateCarParams } from 'src/utils/CarTypes';
+import { CreateCarParams, UpdateCarParams } from 'src/utils/CarTypes';
 import { Repository } from 'typeorm';
 
 @Injectable()
@@ -25,5 +25,9 @@ export class CarsService {
       createdAt: new Date(),
     });
     return this.carRepository.save(newCar);
+  }
+
+  updateCar(id: number, updateCarDetails: UpdateCarParams) {
+    return this.carRepository.update({ id }, { ...updateCarDetails });
   }
 }
